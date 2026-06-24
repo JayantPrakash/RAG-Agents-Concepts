@@ -9,6 +9,10 @@
 
 from langchain_community.tools import ArxivQueryRun,WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper,ArxivAPIWrapper
+import wikipedia
+
+wikipedia.wikipedia.API_URL = "https://en.wikipedia.org/w/api.php"
+wikipedia.wikipedia.USER_AGENT = "RAG-learning-notebook/1.0 (local educational project)"
 
 api_wrapper_arxiv=ArxivAPIWrapper(top_k_results=2,doc_content_chars_max=500)
 arxiv=ArxivQueryRun(api_wrapper=api_wrapper_arxiv)
